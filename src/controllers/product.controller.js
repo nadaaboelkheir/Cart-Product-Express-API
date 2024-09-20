@@ -1,9 +1,13 @@
 const Asynchandler = require("express-async-handler");
 const Product = require("../models/product.model");
 const Cart = require("../models/cart.model");
+const fs = require("fs");
 exports.createProduct = Asynchandler(async (req, res) => {
-  const { name, description, price, salePrice, image, quantity } = req.body;
-
+  if (!req.file) {
+    return res.status(400).json({ message: "Please upload an image." });
+  }
+  const { name, description, price, salePrice, quantity } = req.body;
+  const image = req.file.path;
   const product = await Product.create({
     name,
     description,
@@ -48,6 +52,19 @@ exports.updateProduct = Asynchandler(async (req, res) => {
     });
   }
 
+  if (req.file) {
+    image = req.file.path;
+
+    if (product.image) {
+      fs.unlink(product.image, (err) => {
+        if (err) {
+          console.error("Failed to delete old image:", err);
+        }
+      });
+    }
+  } else {
+    image = product.image;
+  }
   product.name = name || product.name;
   product.description = description || product.description;
   product.price = price || product.price;
@@ -101,6 +118,13 @@ exports.deleteProduct = Asynchandler(async (req, res) => {
   if (!product) {
     return res.status(404).json({
       message: "Product not found",
+    });
+  }
+  if (product.image) {
+    fs.unlink(product.image, (err) => {
+      if (err) {
+        console.error("Failed to delete image:", err);
+      }
     });
   }
 

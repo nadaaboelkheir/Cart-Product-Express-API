@@ -7,8 +7,9 @@ const {
   updateProduct,
   deleteProduct,
 } = require("../controllers/product.controller");
+const { uploadSingle } = require("../middlewares/multer");
 
-router.post("/", createProduct);
+router.post("/", uploadSingle, createProduct);
 router.get("/:id", getProductById);
 router.get("/", getAllProducts);
 router.put("/:id", updateProduct);
