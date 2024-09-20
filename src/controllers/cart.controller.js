@@ -7,24 +7,18 @@ exports.addToCart = Asynchandler(async (req, res) => {
   const { productId, quantity } = item;
 
   if (quantity <= 0) {
-    return res
-      .status(400)
-      .json({ message: "Quantity must be greater than zero" });
+    res.error("Quantity must be greater than zero");
   }
 
   const product = await Product.findById(productId);
   if (!product) {
-    return res
-      .status(404)
-      .json({ message: `Product with id ${productId} not found` });
+    return res.error("Product with id ${productId} not found", 404);
   }
   // Check if requested quantity exceeds available stock
   if (quantity > product.quantity) {
-    return res
-      .status(400)
-      .json({
-        message: `Quantity exceeds available stock. Only ${product.quantity} left.`,
-      });
+    return res.error(
+      `Quantity exceeds available stock. Only ${product.quantity} left.`
+    );
   }
 
   let cart = await Cart.findOne();
@@ -55,9 +49,9 @@ exports.addToCart = Asynchandler(async (req, res) => {
 
   try {
     await cart.save();
-    res.status(200).json({ message: "Product added to cart", cart });
+    res.success(cart, "Product added to cart", 200);
   } catch (error) {
-    res.status(500).json({ message: "Failed to save cart", error });
+    res.error("Failed to save cart", 500);
   }
 });
 
@@ -67,21 +61,19 @@ exports.deleteProductFromCart = Asynchandler(async (req, res) => {
   const cart = await Cart.findOne();
 
   if (!cart) {
-    return res.status(404).json({ message: "Cart not found" });
+    return res.error("Cart not found", 404);
   }
 
   const product = await Product.findById(productId);
   if (!product) {
-    return res
-      .status(404)
-      .json({ message: `Product with id ${productId} not found` });
+    return res.error(`Product with id ${productId} not found`, 404);
   }
   const cartItem = cart.items.find(
     (item) => item.productId.toString() === productId.toString()
   );
 
   if (!cartItem) {
-    return res.status(404).json({ message: "Product not found in cart" });
+    return res.error("Product not found in cart", 4040);
   }
 
   cart.subtotal -= cartItem.quantity * (product.salePrice || product.price);
@@ -92,9 +84,9 @@ exports.deleteProductFromCart = Asynchandler(async (req, res) => {
   );
   try {
     await cart.save();
-    res.status(200).json({ message: "Product removed from cart", cart });
+    res.success(cart, "Product removed from cart", 200);
   } catch (error) {
-    res.status(500).json({ message: "Failed to update cart", error });
+    res.error("Failed to update cart", 500);
   }
 });
 
@@ -108,23 +100,20 @@ exports.updateQuantityInCart = Asynchandler(async (req, res) => {
   }
   const product = await Product.findById(productId);
   if (!product) {
-    return res
-      .status(404)
-      .json({ message: `Product with id ${productId} not found` });
+    return res.error(`Product with id ${productId} not found`, 404);
   }
 
   const cartItem = cart.items.find(
     (item) => item.productId.toString() === productId.toString()
   );
   if (!cartItem) {
-    return res.status(404).json({ message: "Product not found in cart" });
+    return res.error("Product not found in cart", 404);
   }
   if (quantity > product.quantity) {
-    return res
-      .status(400)
-      .json({
-        message: `Requested quantity exceeds available stock. Only ${product.quantity} available.`,
-      });
+    return res.error(
+      `Requested quantity exceeds available stock. Only ${product.quantity} available.`,
+      400
+    );
   }
 
   cart.subtotal -= cartItem.quantity * (product.salePrice || product.price);
@@ -137,9 +126,9 @@ exports.updateQuantityInCart = Asynchandler(async (req, res) => {
 
   try {
     await cart.save();
-    res.status(200).json({ message: "Cart updated successfully", cart });
+    res.success(cart, "Cart updated successfully");
   } catch (error) {
-    res.status(500).json({ message: "Failed to update cart", error });
+    res.error("Failed to update cart", 500);
   }
 });
 exports.getCartTotal = Asynchandler(async (req, res) => {
@@ -148,9 +137,13 @@ exports.getCartTotal = Asynchandler(async (req, res) => {
     return res.status(404).json({ message: "Cart not found" });
   }
 
-  res.status(200).json({
-    subtotal: cart.subtotal,
-    total: cart.total,
-    items: cart.items,
-  });
+  res.success(
+    {
+      subtotal: cart.subtotal,
+      total: cart.total,
+      items: cart.items,
+    },
+    "Cart retrieved successfully",
+    200
+  );
 });

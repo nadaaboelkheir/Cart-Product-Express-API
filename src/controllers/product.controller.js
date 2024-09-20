@@ -16,39 +16,27 @@ exports.createProduct = Asynchandler(async (req, res) => {
     image,
     quantity,
   });
-
-  res.status(201).json({
-    message: "Product created successfully",
-    product: product,
-  });
+  res.success(product, "Product created successfully", 201);
 });
 exports.getProductById = Asynchandler(async (req, res) => {
   const { id } = req.params;
   const product = await Product.findById(id);
   if (!product) {
-    res.status(404).json({
-      message: "Product not found",
-    });
+    res.error("Product not found", 404);
   } else {
-    res.status(200).json({
-      product: product,
-    });
+    res.success(product);
   }
 });
 exports.getAllProducts = Asynchandler(async (req, res) => {
   const products = await Product.find();
-  res.status(200).json({
-    products: products,
-  });
+  res.success(products);
 });
 exports.updateProduct = Asynchandler(async (req, res) => {
   const { id } = req.params;
   const { name, description, price, salePrice, quantity } = req.body;
   const product = await Product.findById(id);
   if (!product) {
-    return res.status(404).json({
-      message: "Product not found",
-    });
+    res.error("Product not found", 404);
   }
 
   let image;
@@ -104,11 +92,7 @@ exports.updateProduct = Asynchandler(async (req, res) => {
 
     await cart.save();
   }
-
-  res.status(200).json({
-    message: "Product updated successfully and reflected in carts",
-    product: product,
-  });
+  res.success(product, "Product updated successfully and reflected in carts");
 });
 
 exports.deleteProduct = Asynchandler(async (req, res) => {
@@ -116,9 +100,7 @@ exports.deleteProduct = Asynchandler(async (req, res) => {
 
   const product = await Product.findByIdAndDelete(id);
   if (!product) {
-    return res.status(404).json({
-      message: "Product not found",
-    });
+    res.error("Product not found", 404);
   }
   if (product.image) {
     fs.unlink(product.image, (err) => {
@@ -154,7 +136,5 @@ exports.deleteProduct = Asynchandler(async (req, res) => {
     })
   );
 
-  res.status(200).json({
-    message: "Product deleted successfully, and carts updated",
-  });
+  res.success("Product deleted successfully, and carts updated");
 });

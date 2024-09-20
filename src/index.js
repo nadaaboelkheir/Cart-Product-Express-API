@@ -3,6 +3,7 @@ const morgan = require("morgan");
 
 const { PORT } = require("./configs/env");
 const connectDB = require("./configs/db.config");
+const responseFormatter = require("./middlewares/responseFormatter.mw");
 const routes = require("./routes/index");
 const cors = require("cors");
 
@@ -12,11 +13,13 @@ app.use(morgan("dev"));
 app.use(cors());
 
 app.use(express.json());
-app.use('/uploads', express.static('uploads')); 
+
+app.use(responseFormatter);
+app.use("/uploads", express.static("uploads"));
 routes(app);
 
 app.use((req, res, next) => {
-  res.status(400).json({ message: "page not found " });
+  res.error("page not found", 400);
 });
 
 app.use((err, req, res, next) => {
