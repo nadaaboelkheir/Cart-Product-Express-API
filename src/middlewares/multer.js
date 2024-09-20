@@ -1,15 +1,23 @@
 const multer = require("multer");
 const path = require("path");
+const fs = require("fs");
 
-const MAX_SIZE = 2 * 1024 * 1024;
+const MAX_SIZE = 2 * 1024 * 1024; // Max file size: 2MB
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads");
+    const uploadPath = path.join(__dirname, "uploads");
+
+  
+    if (!fs.existsSync(uploadPath)) {
+      fs.mkdirSync(uploadPath, { recursive: true });
+    }
+
+    cb(null, uploadPath);
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, uniqueSuffix + path.extname(file.originalname)); 
+    cb(null, uniqueSuffix + path.extname(file.originalname));
   },
 });
 
