@@ -18,6 +18,14 @@ exports.addToCart = Asynchandler(async (req, res) => {
       .status(404)
       .json({ message: `Product with id ${productId} not found` });
   }
+  // Check if requested quantity exceeds available stock
+  if (quantity > product.quantity) {
+    return res
+      .status(400)
+      .json({
+        message: `Quantity exceeds available stock. Only ${product.quantity} left.`,
+      });
+  }
 
   let cart = await Cart.findOne();
   if (!cart) {
@@ -111,6 +119,14 @@ exports.updateQuantityInCart = Asynchandler(async (req, res) => {
   if (!cartItem) {
     return res.status(404).json({ message: "Product not found in cart" });
   }
+  if (quantity > product.quantity) {
+    return res
+      .status(400)
+      .json({
+        message: `Requested quantity exceeds available stock. Only ${product.quantity} available.`,
+      });
+  }
+
   cart.subtotal -= cartItem.quantity * (product.salePrice || product.price);
   cart.total -= cartItem.quantity * (product.salePrice || product.price);
 
