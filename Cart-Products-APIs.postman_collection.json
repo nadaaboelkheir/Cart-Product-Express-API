@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "9f9bfd53-51e2-44ac-ba3d-565558688249",
+		"name": "Cart-Products-APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35056512"
+	},
+	"item": [
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "create product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "postman-cloud:///1ef772d1-4c9a-4e10-bb0f-8b292bbcb059"
+								},
+								{
+									"key": "name",
+									"value": "product 1",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "product 1",
+									"type": "text"
+								},
+								{
+									"key": "salePrice",
+									"value": "20",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/product",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/product/66eba527d328e774a89f4b93",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"product",
+								"66eba527d328e774a89f4b93"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/product/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"product 1 updated\",\r\n    \"description\":\"product 1 is amazing \",\r\n    \"price\":\"100\",\r\n    \"quantity\":\"10\",\r\n    \"salePrice\":\"50\",\r\n    \"image \":\"nnnnnnnnn\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/product/66ed0c6305e1387ee2571ae7",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"product",
+								"66ed0c6305e1387ee2571ae7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/product/66ed3cb84634a49c939cefe4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"product",
+								"66ed3cb84634a49c939cefe4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cart",
+			"item": [
+				{
+					"name": "add product to cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"item\":\r\n        {\r\n            \"productId\": \"66ed1c523b938e24b44b6e38\",\r\n            \"quantity\": \"1\"\r\n        }\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/cart",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change quantity of product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\":\"66ed075cc9ecf0b7c7e5ea74\", \r\n    \"quantity\":\"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/cart",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete product from cart",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/cart/66ed0750c9ecf0b7c7e5ea72",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"cart",
+								"66ed0750c9ecf0b7c7e5ea72"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "display totals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/cart/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"cart",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

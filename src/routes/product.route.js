@@ -12,7 +12,7 @@ const { uploadSingle } = require("../middlewares/multer");
 router.post("/", uploadSingle, createProduct);
 router.get("/:id", getProductById);
 router.get("/", getAllProducts);
-router.put("/:id", updateProduct);
-router.delete("/:id", deleteProduct);
+router.put("/:id", uploadSingle, updateProduct);
+router.delete("/:id", uploadSingle, deleteProduct);
 
 module.exports = router;

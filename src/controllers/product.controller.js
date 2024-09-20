@@ -43,8 +43,7 @@ exports.getAllProducts = Asynchandler(async (req, res) => {
 });
 exports.updateProduct = Asynchandler(async (req, res) => {
   const { id } = req.params;
-  const { name, description, price, salePrice, image, quantity } = req.body;
-
+  const { name, description, price, salePrice, quantity } = req.body;
   const product = await Product.findById(id);
   if (!product) {
     return res.status(404).json({
@@ -52,24 +51,25 @@ exports.updateProduct = Asynchandler(async (req, res) => {
     });
   }
 
+  let image;
   if (req.file) {
     image = req.file.path;
 
-    if (product.image) {
-      fs.unlink(product.image, (err) => {
-        if (err) {
-          console.error("Failed to delete old image:", err);
-        }
-      });
+    if (image !== product.image) {
+      if (product.image) {
+        fs.unlink(product.image, (err) => {
+          if (err) {
+            console.error("Failed to delete old image:", err);
+          }
+        });
+      }
+      product.image = image;
     }
-  } else {
-    image = product.image;
   }
   product.name = name || product.name;
   product.description = description || product.description;
   product.price = price || product.price;
   product.salePrice = salePrice || product.salePrice;
-  product.image = image || product.image;
   product.quantity = quantity || product.quantity;
 
   await product.save();
