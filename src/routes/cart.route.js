@@ -6,11 +6,11 @@ const {
   updateQuantityInCart,
   getCartTotal,
 } = require("../controllers/cart.controller");
-const { idValidation } = require("../validations/common.vc");
+const { productIdValidation } = require("../validations/common.vc");
 
 router.post("/", addToCart);
-router.delete("/:productId", idValidation, deleteProductFromCart);
-router.put("/", updateQuantityInCart);
+router.delete("/:productId", productIdValidation, deleteProductFromCart);
+router.put("/:productId", productIdValidation, updateQuantityInCart);
 router.get("/", getCartTotal);
 
 module.exports = router;

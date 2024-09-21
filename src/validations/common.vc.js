@@ -5,3 +5,8 @@ exports.idValidation = [
   param("id").isMongoId().withMessage("Invalid MongoDB ObjectId"),
   validatorMiddleware,
 ];
+
+exports.productIdValidation = [
+  param("productId").isMongoId().withMessage("Invalid MongoDB ObjectId"),
+  validatorMiddleware,
+];

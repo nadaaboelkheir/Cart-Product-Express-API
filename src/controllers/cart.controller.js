@@ -88,7 +88,8 @@ exports.deleteProductFromCart = Asynchandler(async (req, res) => {
 });
 
 exports.updateQuantityInCart = Asynchandler(async (req, res) => {
-  const { productId, quantity } = req.body;
+  const { productId } = req.params;
+  const { quantity } = req.body;
 
   const cart = await Cart.findOne();
 
