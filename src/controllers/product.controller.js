@@ -134,5 +134,5 @@ exports.deleteProduct = Asynchandler(async (req, res) => {
     })
   );
 
-  res.success("Product deleted successfully, and carts updated");
+  res.success(product._id,"Product deleted successfully, and carts updated");
 });

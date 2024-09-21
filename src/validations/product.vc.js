@@ -19,7 +19,6 @@ exports.createProductValidation = [
     .optional()
     .isNumeric()
     .withMessage("Sale Price must be a number"),
-  check("image").notEmpty().withMessage("Please Enter Product Image"),
   check("quantity")
     .notEmpty()
     .withMessage("Please Enter Product Quantity")

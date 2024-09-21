@@ -12,10 +12,10 @@ const { createProductValidation } = require("../validations/product.vc");
 const { idValidation } = require("../validations/common.vc");
 const { uploadSingle } = require("../middlewares/multer");
 
-router.post("/", createProductValidation, uploadSingle, createProduct);
+router.post("/", uploadSingle,createProductValidation, createProduct);
 router.get("/:id", idValidation, getProductById);
 router.get("/", getAllProducts);
-router.put("/:id", uploadSingle, updateProduct);
+router.put("/:id", uploadSingle, idValidation, updateProduct);
 router.delete("/:id", idValidation, uploadSingle, deleteProduct);
 
 module.exports = router;
