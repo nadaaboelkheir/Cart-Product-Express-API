@@ -20,7 +20,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "postman-cloud:///1ef772d1-4c9a-4e10-bb0f-8b292bbcb059"
+									"src": "postman-cloud:///1ef772b3-5a50-4140-80f7-469dcc444d42"
 								},
 								{
 									"key": "name",
@@ -34,7 +34,7 @@
 								},
 								{
 									"key": "quantity",
-									"value": "4",
+									"value": "10",
 									"type": "text"
 								},
 								{
@@ -66,7 +66,318 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1ef772b3-5a50-4140-80f7-469dcc444d42"
+										},
+										{
+											"key": "name",
+											"value": "product 1",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "20",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "product 1",
+											"type": "text"
+										},
+										{
+											"key": "salePrice",
+											"value": "20",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "279"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"117-jE6iOXpwIh/W/B9wFmt8F7FDgA8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 01:50:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Product created successfully\",\n    \"data\": {\n        \"name\": \"product 1\",\n        \"description\": \"product 1\",\n        \"price\": 20,\n        \"salePrice\": 20,\n        \"image\": \"D:\\\\NebulaX Task\\\\src\\\\middlewares\\\\uploads\\\\1726883439035-684271968.PNG\",\n        \"quantity\": 10,\n        \"_id\": \"66ee266f4cca93d82daa4fed\",\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "validation error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1ef772b3-5a50-4140-80f7-469dcc444d42"
+										},
+										{
+											"key": "name",
+											"value": "product 1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "price",
+											"value": "20",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "quantity",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "product 1",
+											"type": "text"
+										},
+										{
+											"key": "salePrice",
+											"value": "20",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/product",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"product"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "261"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"105-WLIZvDGcwd0GBn1TT8/LRZV3iPw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 01:52:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"msg\": \"Please Enter Product Name\",\n            \"path\": \"name\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"msg\": \"Please Enter Product Price\",\n            \"path\": \"price\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"msg\": \"Price must be a number\",\n            \"path\": \"price\",\n            \"location\": \"body\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "image not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "name",
+											"value": "product 1",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "20",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "product 1",
+											"type": "text"
+										},
+										{
+											"key": "salePrice",
+											"value": "20",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/product",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"product"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36-Q7ratIdoY8obnxDrL0CccKRr0tI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 01:52:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Please upload an image.\"\n}"
+						}
+					]
 				},
 				{
 					"name": "get product by id",
@@ -74,17 +385,188 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/product/66eba527d328e774a89f4b93",
+							"raw": "{{BASE_URL}}/product/66ee265f4cca93d82daa4fe",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
 								"product",
-								"66eba527d328e774a89f4b93"
+								"66ee265f4cca93d82daa4fe"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "product not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/product/66eba527d328e774a89f4b93",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"66eba527d328e774a89f4b93"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-P8HzIsu9ZWMMu6pj+JaIPa0eU6U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 01:53:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Product not found\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/product/66ee265f4cca93d82daa4feb",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"product",
+										"66ee265f4cca93d82daa4feb"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "258"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"102-TTL1UqTM+/w0x+wWfUHtC55nA8Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 01:55:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Success\",\n    \"data\": {\n        \"_id\": \"66ee265f4cca93d82daa4feb\",\n        \"name\": \"product 1\",\n        \"description\": \"product 1\",\n        \"price\": 20,\n        \"salePrice\": 20,\n        \"image\": \"D:\\\\NebulaX Task\\\\src\\\\middlewares\\\\uploads\\\\1726883423665-296665611.png\",\n        \"quantity\": 10,\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "validation error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/product/66ee265f4cca93d82daa4fe",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"product",
+										"66ee265f4cca93d82daa4fe"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "128"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"80-FJ/KlqquMvPWfXan0cShoi3B45I\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 01:56:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"value\": \"66ee265f4cca93d82daa4fe\",\n            \"msg\": \"Invalid MongoDB ObjectId\",\n            \"path\": \"id\",\n            \"location\": \"params\"\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "get all products",
@@ -102,7 +584,66 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/product/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "688"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b0-0W7ZU3Tnli48t111r0Z7df6vM2k\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 01:55:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"_id\": \"66ee265f4cca93d82daa4feb\",\n            \"name\": \"product 1\",\n            \"description\": \"product 1\",\n            \"price\": 20,\n            \"salePrice\": 20,\n            \"image\": \"D:\\\\NebulaX Task\\\\src\\\\middlewares\\\\uploads\\\\1726883423665-296665611.png\",\n            \"quantity\": 10,\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"66ee266f4cca93d82daa4fed\",\n            \"name\": \"product 1\",\n            \"description\": \"product 1\",\n            \"price\": 20,\n            \"salePrice\": 20,\n            \"image\": \"D:\\\\NebulaX Task\\\\src\\\\middlewares\\\\uploads\\\\1726883439035-684271968.PNG\",\n            \"quantity\": 10,\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"66ee270955ef04a08ffc6daa\",\n            \"name\": \"updated product\",\n            \"description\": \"product 1\",\n            \"price\": 20,\n            \"salePrice\": 20,\n            \"image\": \"D:\\\\NebulaX Task\\\\src\\\\middlewares\\\\uploads\\\\1726883718057-147224330.PNG\",\n            \"quantity\": 10,\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "update product",
@@ -110,26 +651,244 @@
 						"method": "PUT",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"product 1 updated\",\r\n    \"description\":\"product 1 is amazing \",\r\n    \"price\":\"100\",\r\n    \"quantity\":\"10\",\r\n    \"salePrice\":\"50\",\r\n    \"image \":\"nnnnnnnnn\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "postman-cloud:///1ef772b3-5a50-4140-80f7-469dcc444d42",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "updated product",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "salePrice",
+									"value": "10",
+									"type": "text"
 								}
-							}
+							]
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/product/66ed0c6305e1387ee2571ae7",
+							"raw": "{{BASE_URL}}/product/66ee270955ef04a08ffc6daa",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
 								"product",
-								"66ed0c6305e1387ee2571ae7"
+								"66ee270955ef04a08ffc6daa"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "validation error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/product/66edf7d98382610306dbde",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"66edf7d98382610306dbde"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "127"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7f-5PzWKeAMcZVpoXq3XjOcOLwRzck\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 01:53:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"value\": \"66edf7d98382610306dbde\",\n            \"msg\": \"Invalid MongoDB ObjectId\",\n            \"path\": \"id\",\n            \"location\": \"params\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1ef772b3-5a50-4140-80f7-469dcc444d42"
+										},
+										{
+											"key": "name",
+											"value": "updated product",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/product/66ee270955ef04a08ffc6daa",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"product",
+										"66ee270955ef04a08ffc6daa"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "308"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"134-wmJlhfdCoH3md4ymddMKs6Xby9Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 01:54:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Product updated successfully and reflected in carts\",\n    \"data\": {\n        \"_id\": \"66ee270955ef04a08ffc6daa\",\n        \"name\": \"updated product\",\n        \"description\": \"product 1\",\n        \"price\": 20,\n        \"salePrice\": 20,\n        \"image\": \"D:\\\\NebulaX Task\\\\src\\\\middlewares\\\\uploads\\\\1726883661012-241555680.PNG\",\n        \"quantity\": 10,\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "product not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1ef772b3-5a50-4140-80f7-469dcc444d42"
+										},
+										{
+											"key": "name",
+											"value": "updated product",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/product/66ee270955ef04a08ffc6dab",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"product",
+										"66ee270955ef04a08ffc6dab"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-P8HzIsu9ZWMMu6pj+JaIPa0eU6U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 01:54:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Product not found\"\n}"
+						}
+					]
 				},
 				{
 					"name": "delete product",
@@ -137,17 +896,188 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/product/66ed3cb84634a49c939cefe4",
+							"raw": "{{BASE_URL}}/product/66ee266f4cca93d82daa4fed",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
 								"product",
-								"66ed3cb84634a49c939cefe4"
+								"66ee266f4cca93d82daa4fed"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "product not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/product/66edf7d98382610306dbde77",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"66edf7d98382610306dbde77"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-P8HzIsu9ZWMMu6pj+JaIPa0eU6U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 01:56:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Product not found\"\n}"
+						},
+						{
+							"name": "validation error",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/product/66edf7d98382610306dbde",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"product",
+										"66edf7d98382610306dbde"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "127"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7f-5PzWKeAMcZVpoXq3XjOcOLwRzck\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 01:57:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"value\": \"66edf7d98382610306dbde\",\n            \"msg\": \"Invalid MongoDB ObjectId\",\n            \"path\": \"id\",\n            \"location\": \"params\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/product/66ee266f4cca93d82daa4fed",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"product",
+										"66ee266f4cca93d82daa4fed"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "114"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"72-zMur0O13BvGjF9y0cb7O76TrCQs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 02:01:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Product deleted successfully, and carts updated\",\n    \"data\": \"66ee266f4cca93d82daa4fed\"\n}"
+						}
+					]
 				}
 			]
 		},
@@ -161,7 +1091,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"item\":\r\n        {\r\n            \"productId\": \"66ed1c523b938e24b44b6e38\",\r\n            \"quantity\": \"1\"\r\n        }\r\n   \r\n}",
+							"raw": "{\r\n    \"item\":\r\n        {\r\n            \"productId\": \"66ee331693c069062172bacb\",\r\n            \"quantity\": \"6\"\r\n        }\r\n   \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -178,7 +1108,203 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "\"Product with id not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"item\":\r\n        {\r\n            \"productId\": \"66ed1c523b938e24b44b6e38\",\r\n            \"quantity\": \"1\"\r\n        }\r\n   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/cart",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cart"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-kWW+A7eokkFcftO0g049ft5ni8U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 02:40:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Product with id ${productId} not found\"\n}"
+						},
+						{
+							"name": "Quantity exceeds available stock",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"item\":\r\n        {\r\n            \"productId\": \"66ee270955ef04a08ffc6daa\",\r\n            \"quantity\": \"12\"\r\n        }\r\n   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/cart",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"cart"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4e-joc+voBbdsKUDjuUOQo/7KbrREM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 02:41:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Quantity exceeds available stock. Only 10 left.\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"item\":\r\n        {\r\n            \"productId\": \"66ee270955ef04a08ffc6daa\",\r\n            \"quantity\": \"5\"\r\n        }\r\n   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/cart/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"cart",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "228"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e4-L5jc6NinvN+WLsi05AoncljfiW8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 02:42:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Product added to cart\",\n    \"data\": {\n        \"items\": [\n            {\n                \"productId\": \"66ee270955ef04a08ffc6daa\",\n                \"quantity\": 5,\n                \"_id\": \"66ee328f93c069062172babb\"\n            }\n        ],\n        \"total\": 100,\n        \"subtotal\": 100,\n        \"_id\": \"66ee328f93c069062172baba\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "change quantity of product",
@@ -187,7 +1313,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"productId\":\"66ed075cc9ecf0b7c7e5ea74\", \r\n    \"quantity\":\"2\"\r\n}",
+							"raw": "{\r\n    \"quantity\":\"12\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -195,16 +1321,342 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/cart",
+							"raw": "{{BASE_URL}}/cart/66ee331693c069062172bac",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
-								"cart"
+								"cart",
+								"66ee331693c069062172bac"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Requested quantity exceeds available stock",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\":\"66ee270955ef04a08ffc6daa\", \r\n    \"quantity\":\"12\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/cart",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cart"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "93"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5d-9C7ovpavwOkkOjPrr8o8IDtCgCs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 02:45:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Requested quantity exceeds available stock. Only 10 available.\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\":\"66ee270955ef04a08ffc6daa\", \r\n    \"quantity\":\"5\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/cart",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"cart"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "319"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"13f-hUB1456fLcr5wm9HwyR/Rf2+T/o\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 02:46:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Cart updated successfully\",\n    \"data\": {\n        \"_id\": \"66ee328f93c069062172baba\",\n        \"items\": [\n            {\n                \"productId\": \"66ee270955ef04a08ffc6daa\",\n                \"quantity\": 5,\n                \"_id\": \"66ee328f93c069062172babb\"\n            },\n            {\n                \"productId\": \"66ee331693c069062172bacb\",\n                \"quantity\": 5,\n                \"_id\": \"66ee332793c069062172bad0\"\n            }\n        ],\n        \"total\": 150,\n        \"subtotal\": 150,\n        \"__v\": 1\n    }\n}"
+						},
+						{
+							"name": "Product with id not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\":\"66ee270955ef04a08ffc6dab\", \r\n    \"quantity\":\"5\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/cart",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"cart"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"51-2oO5Bw3YXiHg1l/2KHloPfgv8UI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 02:46:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Product with id 66ee270955ef04a08ffc6dab not found\"\n}"
+						},
+						{
+							"name": "validation error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \r\n    \"quantity\":\"12\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/cart/66ee331693c069062172bac",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"cart",
+										"66ee331693c069062172bac"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "101"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"65-iARZLWPlI6bscjLKrHGJEe9Tgyk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 03:07:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"msg\": \"Invalid MongoDB ObjectId\",\n            \"path\": \"ProductId\",\n            \"location\": \"params\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "validation error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"quantity\":\"12\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/cart/66ee331693c069062172bac",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"cart",
+										"66ee331693c069062172bac"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "135"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"87-to7LRuxPvdIHa9S9cQm5VT9/2rM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 03:09:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"value\": \"66ee331693c069062172bac\",\n            \"msg\": \"Invalid MongoDB ObjectId\",\n            \"path\": \"productId\",\n            \"location\": \"params\"\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "delete product from cart",
@@ -212,17 +1664,132 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/cart/66ed0750c9ecf0b7c7e5ea72",
+							"raw": "{{BASE_URL}}/cart/66ee270955ef04a08ffc6daa",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
 								"cart",
-								"66ed0750c9ecf0b7c7e5ea72"
+								"66ee270955ef04a08ffc6daa"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "product not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/cart/66ee270955ef04a08ffc6dab",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cart",
+										"66ee270955ef04a08ffc6dab"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"51-2oO5Bw3YXiHg1l/2KHloPfgv8UI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 02:51:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Product with id 66ee270955ef04a08ffc6dab not found\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/cart/66ee270955ef04a08ffc6daa",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"cart",
+										"66ee270955ef04a08ffc6daa"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "232"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e8-/HNBrwLHaBTsDKHXw8gk5PhSTVI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 02:52:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Product removed from cart\",\n    \"data\": {\n        \"_id\": \"66ee328f93c069062172baba\",\n        \"items\": [\n            {\n                \"productId\": \"66ee331693c069062172bacb\",\n                \"quantity\": 5,\n                \"_id\": \"66ee332793c069062172bad0\"\n            }\n        ],\n        \"total\": 100,\n        \"subtotal\": 100,\n        \"__v\": 2\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "display totals",
@@ -240,7 +1807,66 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/cart/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cart",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "193"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c1-M7rq8+nimCfnQTdQK57czQiyw5c\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Sep 2024 02:52:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Cart retrieved successfully\",\n    \"data\": {\n        \"subtotal\": 100,\n        \"total\": 100,\n        \"items\": [\n            {\n                \"productId\": \"66ee331693c069062172bacb\",\n                \"quantity\": 5,\n                \"_id\": \"66ee332793c069062172bad0\"\n            }\n        ]\n    }\n}"
+						}
+					]
 				}
 			]
 		}
