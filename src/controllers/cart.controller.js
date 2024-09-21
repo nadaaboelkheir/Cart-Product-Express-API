@@ -37,7 +37,11 @@ exports.addToCart = Asynchandler(async (req, res) => {
     cart.total -= cartItem.quantity * itemPrice;
 
     cartItem.quantity += quantity * 1;
-
+    if (cartItem.quantity > product.quantity) {
+      return res.error(
+        `Quantity exceeds available stock. Only ${product.quantity} left.`
+      );
+    }
     cart.subtotal += cartItem.quantity * itemPrice;
     cart.total += cartItem.quantity * itemPrice;
   } else {
