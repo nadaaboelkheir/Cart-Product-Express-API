@@ -47,12 +47,8 @@ exports.addToCart = Asynchandler(async (req, res) => {
     cart.total += quantity * itemPrice;
   }
 
-  try {
-    await cart.save();
-    res.success(cart, "Product added to cart", 200);
-  } catch (error) {
-    res.error("Failed to save cart", 500);
-  }
+  await cart.save();
+  res.success(cart, "Product added to cart", 200);
 });
 
 exports.deleteProductFromCart = Asynchandler(async (req, res) => {
@@ -82,12 +78,9 @@ exports.deleteProductFromCart = Asynchandler(async (req, res) => {
   cart.items = cart.items.filter(
     (item) => item.productId.toString() !== productId.toString()
   );
-  try {
-    await cart.save();
-    res.success(cart, "Product removed from cart", 200);
-  } catch (error) {
-    res.error("Failed to update cart", 500);
-  }
+
+  await cart.save();
+  res.success(cart, "Product removed from cart", 200);
 });
 
 exports.updateQuantityInCart = Asynchandler(async (req, res) => {
@@ -96,7 +89,7 @@ exports.updateQuantityInCart = Asynchandler(async (req, res) => {
   const cart = await Cart.findOne();
 
   if (!cart) {
-    return res.status(404).json({ message: "Cart not found" });
+    return res.error("Cart not found", 404);
   }
   const product = await Product.findById(productId);
   if (!product) {
@@ -124,17 +117,13 @@ exports.updateQuantityInCart = Asynchandler(async (req, res) => {
   cart.subtotal += cartItem.quantity * (product.salePrice || product.price);
   cart.total += cartItem.quantity * (product.salePrice || product.price);
 
-  try {
-    await cart.save();
-    res.success(cart, "Cart updated successfully");
-  } catch (error) {
-    res.error("Failed to update cart", 500);
-  }
+  await cart.save();
+  res.success(cart, "Cart updated successfully");
 });
 exports.getCartTotal = Asynchandler(async (req, res) => {
   const cart = await Cart.findOne().populate("items");
   if (!cart) {
-    return res.status(404).json({ message: "Cart not found" });
+    return res.error("Cart not found", 404);
   }
 
   res.success(

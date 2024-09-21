@@ -4,7 +4,7 @@ const Cart = require("../models/cart.model");
 const fs = require("fs");
 exports.createProduct = Asynchandler(async (req, res) => {
   if (!req.file) {
-    return res.status(400).json({ message: "Please upload an image." });
+    return res.error("Please upload an image.",400)
   }
   const { name, description, price, salePrice, quantity } = req.body;
   const image = req.file.path;
@@ -22,7 +22,7 @@ exports.getProductById = Asynchandler(async (req, res) => {
   const { id } = req.params;
   const product = await Product.findById(id);
   if (!product) {
-    res.error("Product not found", 404);
+  return  res.error("Product not found", 404);
   } else {
     res.success(product);
   }
@@ -36,7 +36,7 @@ exports.updateProduct = Asynchandler(async (req, res) => {
   const { name, description, price, salePrice, quantity } = req.body;
   const product = await Product.findById(id);
   if (!product) {
-    res.error("Product not found", 404);
+   return res.error("Product not found", 404);
   }
 
   let image;
@@ -100,7 +100,7 @@ exports.deleteProduct = Asynchandler(async (req, res) => {
 
   const product = await Product.findByIdAndDelete(id);
   if (!product) {
-    res.error("Product not found", 404);
+   return res.error("Product not found", 404);
   }
   if (product.image) {
     fs.unlink(product.image, (err) => {
@@ -127,11 +127,9 @@ exports.deleteProduct = Asynchandler(async (req, res) => {
           (item) => item.productId.toString() !== id.toString()
         );
 
-        try {
+       
           await cart.save();
-        } catch (error) {
-          console.error(`Failed to update cart ${cart._id}:`, error);
-        }
+       
       }
     })
   );
